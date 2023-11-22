@@ -1,0 +1,48 @@
+static 메서드와 인스턴스 메서드
+
+인스턴스 메서드
+-인스턴스 생성 후 참조변수.메서드이름() 으로 호출
+-인스턴스 멤버(iv,im)와 관련된 작업을 하는 메서드
+-메서드 내에서 인스턴스 변수(iv)사용 가능
+
+static메서드(클래스메서드)
+-객체생성없이 클래스이름.메서드이름() 으로 호출
+-인스턴스 멤버(iv,im)와 관련없는 작업을 하는 메서드
+-메서드 내에서 인스턴스변수(iv) 사용불가
+
+-두 메서드의 차이는 iv사용여부이다.
+-인스턴스 메서드는  iv를 사용해야 하고 클래스 메서드는 iv를 사용하지 않는다.
+
+class MyMath2{
+	long a,b;
+	
+	long add(){	//인스턴스 메서드. iv필요 o(메서드에 매개변수가 없으니까 iv필요)	
+		return a+b;	
+	}
+	
+	static long add(long a, long b){	//클래스 메서드(static메서드) iv필요 x
+		return a+b;
+	}
+}
+
+class MyMathTest2{
+	public static void main(String agrs[]){
+		print(MyMath2.add(200L, 100L));	//클래스메서드 호출
+		MyMath2 mm = new MyMath2();	//인스턴스 생성
+		mm.a = 200L;
+		mm.b = 100L;
+		print(mm.add());	//인스턴스 메서드 호출
+	}
+}	
+	
+*static은 언제 붙여야 할까?
+-속성(멤버변수) 중에서 공통속성에 static을 붙인다.
+class Card{
+	String kind;	//무늬
+	int number;		//숫자
+	
+	static int width = 100; //폭
+	static int height = 250; //높이
+	}
+}
+-인스턴스 멤버(iv, im)을 사용하지  않는 메서드에 static 붙인다.

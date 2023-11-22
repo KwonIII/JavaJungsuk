@@ -9,7 +9,7 @@ public class Ex6_4 {
 		long result2 = mm.subtract(5L, 3L);
 		long result3 = mm.multiply(5L, 3L);
 		double result4 = mm.divide(5L, 3L);
-		
+		mm.printGugudan(7);
 		System.out.println("max(5L, 3L) = " + result);
 		System.out.println("add(5L, 3L) = " + result1);
 		System.out.println("subtract(5L, 3L) = " + result2);
@@ -19,6 +19,15 @@ public class Ex6_4 {
 
 }
 class MyMath{
+	void printGugudan(int dan) {
+		if(!(2<=dan && dan <= 9)) {
+			return;	//입력받은 단이 2~9가 아니면 메서드 종료하고돌아가기
+		}
+		
+		for(int i=1;i<=9;i++) {
+			System.out.printf("%d * %d = %d %n",dan,i,dan*i);
+		}
+	}
 	long add(long a, long b) {
 		long result = a+b;
 		return result;
