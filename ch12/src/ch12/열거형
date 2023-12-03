@@ -1,0 +1,28 @@
+열거형(enum)
+-관련된 상수들을 같이 묶어 놓은 것. java는 타입에 안전한 열거형을 제공
+class Card{
+	static final int CLOVER = 0;
+	static final int HEART = 1;
+	static final int DIAMOND = 2;
+	static final int SPADE = 3;
+
+	static final int TWO = 0;
+	static final int THREE = 1;
+	static final int FOUR = 2;
+	
+	final int kind;
+	final int num;
+}
+if(Card.CLOVER == Card.TWO) ///true지만 false이어야 의미상 맞음
+
+class Card{
+	enum Kind{CLOVER, HEART, DIAMOND, SPADE}	//열거형 Kind를 정의
+	enum Value{TWO, THREE, FOUR}				//열거형 Value를 정의
+	
+	final Kind kind; //타입이 int가 아닌 Kind임에 유의하자.
+	final Value value;
+}
+if(Card.Kind.CLOVER == Card.Value.TWO)//컴파일에러. 값은 같지만 타입이 달라서 비교불가
+
+-열거형을 정의하는 방법
+enum 열거형이름 {상후명1, 상수명2, ...}
