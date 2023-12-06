@@ -24,5 +24,15 @@ class Card{
 }
 if(Card.Kind.CLOVER == Card.Value.TWO)//컴파일에러. 값은 같지만 타입이 달라서 비교불가
 
--열거형을 정의하는 방법
-enum 열거형이름 {상후명1, 상수명2, ...}
+-열거형을 정의하는 방법 enum Direction{EAST, SOUTH, WEST, NORTH}
+enum 열거형이름 {상수명1, 상수명2, ...}//0부터 시작하는 정수값이 하나씩 부여된다.
+-열거형 타입의 변수를 선언하고 사용하는 방법
+class Unit{
+	int x,y;	//유닛의 위치
+	Direction dir; //열거형 인스턴스 변수를 선언
+	
+	void init(){
+		dir = Direction.EAST;	//유닛의 방향을 EAST로 초기화
+	}
+
+}
